@@ -14,8 +14,12 @@ const Post = (props) => {
                         {post?.body}
                     </p>
                     <div className="mt-4">
-                        {post?.tags?.map((tag) => {
-                            return <Tag sentiment="success">{tag}</Tag>;
+                        {post?.tags?.map((tag, i) => {
+                            return (
+                                <Tag key={i} sentiment="success">
+                                    {tag}
+                                </Tag>
+                            );
                         })}
                     </div>
                 </div>

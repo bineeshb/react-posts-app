@@ -16,7 +16,7 @@ const Tag = (props) => {
     return (
         <div
             id={id ? id : ""}
-            className={`ml-4 inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full 
+            className={`m-0.5 inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full 
             ${classes[sentiment ? sentiment : "neutral"]}
             ${classes[size ? size : "small"]}`}
         >

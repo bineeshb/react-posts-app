@@ -1,15 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
-import App from "./App";
+import HomePage from "./Pages/HomePage";
+import PostPage from "./Pages/PostPage";
 import reportWebVitals from "./reportWebVitals";
+
+const AppLayout = () => {
+    return (
+        <div>
+            <Outlet />
+        </div>
+    );
+};
+
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout />,
+        children: [
+            {
+                path: "/",
+                element: <HomePage />,
+            },
+            {
+                path: "/post/:postId",
+                element: <PostPage />,
+            },
+        ],
+    },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <App />
+        <RouterProvider router={appRouter} />
     </React.StrictMode>
 );
 library.add(fas);
